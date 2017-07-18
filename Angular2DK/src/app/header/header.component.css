@@ -1,0 +1,82 @@
+body {
+    min-height: 2000px;
+}
+
+.normal {
+    xheight: 75px;
+    /* this causes drop down to lose color ??? */
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.normal .navbar-right {
+    padding-top: 12px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.navbar-brand {
+    padding: 0px !important;
+}
+
+.navbar-brand img {
+    padding: 0 60px 0 4px;
+    max-height: 75px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+    margin-right: 90%;
+}
+
+.shrink {
+    height: 50px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.shrink .navbar-right {
+    padding-top: 0px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.shrink .navbar-brand img {
+    max-height: 50px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .navbar-brand img {
+        padding: 0 10px 0 4px;
+        max-height: 75px;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -ms-transition: 0.5s;
+        transition: 0.5s;
+        margin-right: 90%;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    .navbar-brand img {
+        padding: 0 10px 0 4px;
+        max-height: 10px;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -ms-transition: 0.5s;
+        transition: 0.5s;
+        margin-right: 90%;
+    }
+}
