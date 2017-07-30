@@ -1,3 +1,4 @@
+import { IProduct } from '../models/IProduct';
 import { any } from 'codelyzer/util/function';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
+  
   constructor() { }
 
   pageTitle: String = 'Product List';
-  products: any[] = [
+  showImage: boolean = true;
+  listFilter: string = '';
+  products: IProduct[] = [
     {
         "productId": 1,
         "productName": "Leaf Rake",
@@ -62,9 +65,13 @@ export class ProductsComponent implements OnInit {
         "starRating": 4.6,
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }
-];
+    ];
 
   ngOnInit() {
+  }
+
+  toggleImage(): void{
+    this.showImage = !this.showImage;
   }
 
 }
