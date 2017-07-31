@@ -1,34 +1,39 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable} from 'rxjs/Rx'; 
 
 import { Task } from '../models/task';
-import {TaskService} from '../services/task.service';
-import { EmitterService } from '../../emitter.service';
-
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 
+@Injectable()
+export class TaskService {  
+   baseURL:string="https://localhost:8080/Lista";
 
-export class TaskComponent implements OnInit, OnChanges {
-    ngOnChanges(changes: any) {
-        EmitterService.get(this.).subscribe((task: Task[]) => {this.getTasks(); });
-    }
-    ngOnInit() {
-        this.getTasks();
-    }
+   constructor(private http:Http){
+   } 
 
-    constructor(
-        private taskService: TaskService
-        ) {}
+   getTask(): Observable<Task[]> {
+        return this.http.get(this.baseURL)
+                .map(this.extractTask)
+                .catch(this.handleError)
+   }
 
-    task: Task[];
-    // Input properties
-    @Input() taskId: string;
-    @Input() editId: string;
+   private extractTask(res: Response) {
+        return <Task[]>res.json();
+   }
+  
+   private handleError(error:Response|any){
 
-    
+        let errMsg: string;
+        if (error instanceof Response) {
+                const body = error.json() || '';
+                const err = body.error || JSON.stringify(body);
+                errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+        } else {
+                errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return Observable.throw(errMsg);
+   } 
 
-    
-
-    //http://embed.plnkr.co/jfUIrVZyajLv8KnDrhL2/
 }

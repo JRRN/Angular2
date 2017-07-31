@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductFilterPipe } from "app/services/productFilter";
+import { StarComponent } from "app/shared/star.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductFilterPipe } from "app/services/productFilter";
     FooterComponent,
     HomeComponent,
     ProductsComponent,
-    ProductFilterPipe
+    ProductFilterPipe,
+    StarComponent
   ],
   imports: [
     BrowserModule, 
