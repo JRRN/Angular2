@@ -22,9 +22,14 @@ export class ProductsComponent implements OnInit {
     showImage: boolean = true;
     listFilter: string;
     products: IProduct[];
+    errorMessage: string;
 
-    ngOnInit() {
-        this.products = this._productService.getProducts();
+    ngOnInit(): void {
+        this._productService.getProducts()
+            .subscribe(
+                products => this.products = products,
+                error => this.errorMessage = <any> error
+            );
     }
 
     toggleImage(): void {
