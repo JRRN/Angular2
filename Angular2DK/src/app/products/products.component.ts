@@ -1,10 +1,8 @@
 import { ProductService } from '../services/product.Service';
 import { IProduct } from '../models/IProduct';
-import { any } from 'codelyzer/util/function';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'pm-products',
     templateUrl: './products.component.html',
     styleUrls: ['./products.component.css']
 })

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'ai-star',
+    selector: 'pm-star',
     templateUrl: './star.component.html',
     styleUrls: ['./star.component.css']
 })
@@ -13,7 +13,7 @@ export class StarComponent implements OnChanges {
     @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
 
     public ngOnChanges(): void {
-        this.startWith = this.rating * 86 / 5;
+        this.startWith = this.rating;
     }
     
     public onClick(){

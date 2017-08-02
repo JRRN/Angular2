@@ -20,7 +20,7 @@
                     <tr>
                         <th>
                             <button class='btn btn-primary' (click)='toggleImage()'>
-                                {{ ShowImage ? 'Hide' : 'Show' }} Image
+                                {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
                         </th>
                         <th>{{Product}}</th>
@@ -33,7 +33,7 @@
                 <tbody>
                     <tr *ngFor="let product of products | productFilter:listFilter">
                         <td>
-                            <img *ngIf='ShowImage' id='image' [src]='product.imageUrl' [title]='product.productName'>
+                            <img *ngIf='showImage' id='image' [src]='product.imageUrl' [title]='product.productName'>
                         </td>
                         <td><a href="">
                                 {{product.productName}}
@@ -43,7 +43,8 @@
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price | currency : 'EUR':true:'1.2-2'}}</td>
                         <td>
-                            <ai-star [rating]='product.starRating' (ratingCliked)='onRatingClicked($event)'></ai-star>
+                            <pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'>
+                            </pm-star>
                         </td>
                     </tr>
                 </tbody>
