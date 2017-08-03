@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class='panel panel-primary'>
     <div class='panel-heading'>
         {{ pageTitle }}
@@ -23,7 +24,7 @@
                                 {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
                         </th>
-                        <th>{{Product}}</th>
+                        <th>Product</th>
                         <th>Code</th>
                         <th>Available</th>
                         <th>Price</th>
@@ -35,8 +36,8 @@
                         <td>
                             <img *ngIf='showImage' id='image' [src]='product.imageUrl' [title]='product.productName'>
                         </td>
-                        <td><a href="">
-                                {{product.productName}}
+                        <td><a [routerLink]="['/product/', product.productId]">
+                            {{product.productName}}
                             </a>
                         </td>
                         <td>{{product.productCode | lowercase}}</td>
@@ -52,3 +53,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>

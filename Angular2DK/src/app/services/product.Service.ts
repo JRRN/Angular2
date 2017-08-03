@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http/public_api';
 import { Observable } from 'rxjs/Rx';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
@@ -19,8 +20,22 @@ export class ProductService {
 
     }
 
-    private handleError(error: Response) {
-        console.log(error);
-        return Observable.throw(error.json().error || 'Server Error');
+    getProduct(idProduct: number): Observable<IProduct> {
+        return this.getProducts()
+            .map((products: IProduct[]) => products
+                .find(p => p.productId == idProduct)
+            );
+    }
+
+    private handleError(err: HttpErrorResponse) {
+
+        let errorMessage = '';
+        if (err.error instanceof Error) {
+            errorMessage = `An error occurred: ${err.error.message}`;
+        } else {
+            errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+        }
+        console.error(errorMessage);
+        return Observable.throw(errorMessage);
     }
 }
