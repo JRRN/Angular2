@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared.module';
 import { ProductModule } from './modules/product.module';
 import { RouterModule } from '@angular/router';
@@ -22,11 +23,7 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     HttpModule,
     ProductModule,
-    RouterModule.forRoot([
-      { path: 'home', component: HomeComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' }
-    ])
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
