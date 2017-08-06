@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TaskService {  
-   baseURL:string="https://localhost:8080/Lista";
+   baseURL:string='https://localhost:8080/Lista';
 
    constructor(private http:Http){
    } 
