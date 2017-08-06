@@ -1,5 +1,4 @@
-<app-header></app-header>
-<div class='panel panel-primary' *ngIf='product'>
+<div class='panel panel-primary' *ngIf='product.length > 0'>
     <div class='panel-heading'>
         {{pageTitle + ': ' + product.productName}}
     </div>
@@ -52,5 +51,3 @@
         </div>
     </div>
 </div>
-
-<app-footer></app-footer>

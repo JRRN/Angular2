@@ -1,4 +1,3 @@
-import { ProductService } from './services/product.Service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [
-    ProductService
   ]
 })
 export class AppComponent {

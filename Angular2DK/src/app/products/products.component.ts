@@ -1,7 +1,6 @@
 import { ProductService } from '../services/product.Service';
 import { IProduct } from '../models/IProduct';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
     templateUrl: './products.component.html',
     styleUrls: ['./products.component.css']
