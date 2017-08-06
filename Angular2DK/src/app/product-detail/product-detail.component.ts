@@ -2,7 +2,7 @@ import { ProductService } from '../services/product.Service';
 import { Http } from '@angular/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
-import { IProduct } from "app/models/IProduct";
+import { IProduct } from 'app/models/IProduct';
 
 @Component({
   selector: 'pm-product-detail',
